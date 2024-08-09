@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Vite App</title>
+    <style>
+      #iframe {
+        display: grid;
+        justify-content: center;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="light-blue-mesh glass">
+      <h1>MoodyPlayer</h1>
+    </header>
+    <div>
+      <div id="preview"></div>
+
+      <div>
+        <h1 style="color: rgba(0, 0, 0, 0.6)">Hello! Test your mood</h1>
+        <div class="card">
+          <button id="camera" type="button" class="dark-blue-mesh glass">
+            Preview Your Photo
+          </button>
+          <button
+            id="take-photo"
+            type="button"
+            style="display: none"
+            class="light-blue-mesh glass"
+          >
+            Take photo
+          </button>
+        </div>
+        <canvas id="canvas"></canvas>
+      </div>
+
+      <div>
+        <canvas id="moody-canvas"></canvas>
+      </div>
+
+      <div id="iframe">
+        <iframe
+          id="video-player"
+          width="560"
+          height="315"
+          style="display: none"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+      </div>
+    </div>
+    <script type="module" src="/main.js"></script>
+    <script type="module" src="/camera.js"></script>
+  </body>
+</html>
