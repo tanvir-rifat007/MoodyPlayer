@@ -85,8 +85,20 @@ takePhoto.addEventListener("click", async () => {
     const max = prediction.reduce((acc, val) =>
       val.probability > acc.probability ? val : acc
     );
-    const emotion = max.className;
-    context.fillText(emotion, 10, 50);
+    let emotion = max.className;
+
+    if (emotion === "neutral") {
+      emotion = "sad";
+    }
+
+    if (emotion === "sad") {
+      context.font = "bold 250px serif"; // Larger size for sad emoji
+
+      context.fillText("😔", 250, 250);
+    } else if (emotion === "happy") {
+      context.font = "bold 250px serif";
+      context.fillText("😄", 250, 250);
+    }
 
     // Announce the detected emotion
     const utterance = new SpeechSynthesisUtterance(
